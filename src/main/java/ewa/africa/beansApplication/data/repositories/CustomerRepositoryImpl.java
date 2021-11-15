@@ -23,12 +23,13 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void delete(Customer aCustomer) {
-
+    delete(aCustomer.getEmail());
 
     }
 
     @Override
     public void delete(String email) {
+        database.remove(email);
 
     }
 
@@ -44,6 +45,6 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void deleteAll() {
-
+        database.clear();
     }
 }

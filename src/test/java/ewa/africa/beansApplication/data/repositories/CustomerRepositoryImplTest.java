@@ -50,9 +50,15 @@ class CustomerRepositoryImplTest {
     void delete() {
         Customer savedCustomer = saveCustomer();
         customerRepository.delete(savedCustomer.getEmail());
+        assertEquals(0, customerRepository.findAll().size());
     }
 
     @Test
-    void testFindByEmail() {
+    void testDelete() {
+    Customer savedCustomer = saveCustomer();
+    customerRepository.delete(savedCustomer);
+    assertEquals(0, customerRepository.findAll().size());
+    assertTrue(customerRepository.findAll().isEmpty());
+
     }
 }
